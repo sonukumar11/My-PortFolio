@@ -3,9 +3,21 @@ import './Header.scss';
 import { motion } from 'framer-motion';
 import {images} from '../../constants'
 
+
+const scaleVariants = {
+  whileInView:{
+    scale:[0,1],
+    opacity:[0,1],
+    transition:{
+      duration:1,
+      ease:'easeInOut'
+    }
+  }
+}
+
 const Header = () => {
   return (
-    <div className='app__header app__flex'>
+    <div id="home" className='app__header app__flex'>
       <motion.div
         // [-100,0] -- Animates from left to right and opacity:[0,1] from transparent to prely visible
         whileInView={{x:[-100,0], opacity:[0,1] }}
@@ -47,9 +59,16 @@ const Header = () => {
       </motion.div>
 
       <motion.div
-        variants={scaleVa}
-      >
+        variants={scaleVariants}
+        whileInView={scaleVariants.whileInView}
+        className = "app__header-circles"
 
+      >
+        {[images.flutter , images.redux , images.sass].map((circle)=>(
+          <div className='circle-cmp app__flex' key={`$(circle)`}>
+            <img src={circle} alt="circle" />
+          </div>
+        ))}
         
       </motion.div>
     </div>

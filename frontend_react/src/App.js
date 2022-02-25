@@ -7,9 +7,9 @@ const App = () => {
   return (
     <div className='app'>
       <Navbar></Navbar>
+      <Header></Header>
       <About></About>
       <Footer></Footer>
-      <Header></Header>
       <Skills></Skills>
       <Testimonial></Testimonial>
       <Work></Work>
